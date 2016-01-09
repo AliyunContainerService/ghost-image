@@ -1,0 +1,22 @@
+ghost: 
+  image: registry.aliyuncs.com/acs-sample/ghost:0.7
+  links: 
+    - db:mysql 
+  ports: 
+    - "2368"
+  environment:
+    - GHOST_URL=http://www.myblog.com
+    - OSS_BUCKET=myblog-bucket
+    - OSS_ACCESS_KEY_ID=myblog-bucket-access-key-id
+    - OSS_ACCESS_KEY_SECRET=myblog-bucket-access-key-secrete
+    - OSS_PREFIX=http://myblog-bucket.oss-cn-beijing.aliyuncs.com
+    - OSS_ENDPOINT=http://oss-cn-beijing.aliyuncs.com
+  restart: always
+db:
+  image: registry.aliyuncs.com/acs-sample/mysql:5.7
+  environment:
+    - MYSQL_ROOT_PASSWORD=changeme
+    - MYSQL_DATABASE=ghost
+    - MYSQL_USER=ghost
+    - MYSQL_PASSWORD=changeme
+  restart: always
