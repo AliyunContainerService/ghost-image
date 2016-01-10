@@ -28,7 +28,7 @@ config = {
         },
 
         server: {
-            host: '127.0.0.1',
+            host: '0.0.0.0',
             port: '2368'
         },
         // 参考文档： http://www.ghostchina.com/ghost-0-5-5-chinese-edition-released/
