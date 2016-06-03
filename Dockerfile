@@ -48,6 +48,6 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV NODE_ENV production
 RUN chown -R user $GHOST_SOURCE
-ADD config.example.js config.example.js
+COPY config.example.js config.example.js
 EXPOSE 2368
 CMD ["npm", "start"]
